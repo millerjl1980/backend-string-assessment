@@ -18,8 +18,12 @@
 
 
 def verbing(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    if len(s) < 3:
+        return s
+    elif s.endswith("ing"):
+        return s + "ly"
+    else:
+        return s + "ing"
 
 
 # E. not_bad
@@ -31,8 +35,15 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    if s.find("bad") == -1:
+        return s
+    elif s.find('bad') < s.find('not'):
+        return s
+    else:
+        starting = s.find("not")
+        ending = s.find("bad")
+        remove = s[starting:(ending+3)]
+        return s.replace(remove, "good")
 
 
 # F. front_back
